@@ -1,10 +1,11 @@
 #include <iostream>
+#include "shotgun.h"
 
 using namespace std;
-                                                                            int main() {
+
 int main() {
-    cout << "epic intro\n";
-    cout << "v0.0\n";
+    cout << "git\n";
+    cout << "gitgit\n";
 
     return 0;
 }
