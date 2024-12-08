@@ -3,11 +3,14 @@
 
 #include <vector>
 #include <random>
+#include <algorithm>
 
 class Shotgun {
     public:
+        std::vector<std::string> content;
         Shotgun() {
             this->dmg = 1;
+            this->content = {};
         }
         std::string shell(int n=0) {
             return this->content[n];
@@ -33,7 +36,6 @@ class Shotgun {
         }
 
     private:
-        std::vector<std::string> content;
         int dmg;
 };
 

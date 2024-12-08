@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <ostream>
+#include <string>
 
 class Player {
     public:
@@ -16,6 +17,9 @@ class Player {
             return this->lives;
         }
         friend std::ostream& operator<< (std::ostream &s, Player &player);
+        void addOpponent(Player opp) {
+            this->opponents.push_back(opp);
+        }
     private:
         int lives;
         int wins;
