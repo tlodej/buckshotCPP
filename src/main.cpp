@@ -13,6 +13,7 @@ using namespace std;
 int main() {
     cout << "well hello there! welcome to...\n";
     this_thread::sleep_for(chrono::seconds(3));
+
     cout << "=======================\n";
     cout << "|| BUCKSHOT ROULETTE ||\n";
     cout << "||   (C++ version)   ||\n";
@@ -21,9 +22,10 @@ int main() {
     cout << "press enter to start\n";
     cout << "or type 'how' for a how-to-play\n";
     query("you can also check out the credits by typing 'creds'");
+
     string ans;
     cin >> ans;
-    Shotgun *shotgun = new Shotgun();
+    Shotgun shotgun{};
     clear();
     if (ans == "how") {
         string line;
