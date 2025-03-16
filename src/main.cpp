@@ -8,16 +8,11 @@
 
 using namespace std;
 
-const chrono::duration ONE = chrono::seconds(1);
-const chrono::duration TWO = chrono::seconds(2);
-const chrono::duration THREE = chrono::seconds(3);
-const chrono::duration FOUR = chrono::seconds(4);
-const chrono::duration FIVE = chrono::seconds(5);
 
 //cout << *plr << endl; use to print name
 int main() {
     cout << "well hello there! welcome to...\n";
-    this_thread::sleep_for(THREE);
+    this_thread::sleep_for(chrono::seconds(3));
     cout << "=======================\n";
     cout << "|| BUCKSHOT ROULETTE ||\n";
     cout << "||   (C++ version)   ||\n";
