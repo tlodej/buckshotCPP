@@ -9,7 +9,11 @@
 #include "shotgun.h"
 
 void clear() {
-    std::system("clear");
+#ifdef WINDOWS
+    std::system("cls");
+#else
+    std::system ("clear");
+#endif
 }
 
 void query(std::string text) {
