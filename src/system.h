@@ -41,7 +41,3 @@ void initOpponents(Player &plr1, Player &plr2, Player &plr3) {
     plr3.addOpponent(plr1);
     plr3.addOpponent(plr2);
 }
-
-bool shotgunNotEmpty(Shotgun s) {
-    return s.content.size() > 0;
-}
