@@ -12,21 +12,16 @@ enum class Shell {
 
 class Shotgun {
     public:
-        std::vector<Shell> content;
-
-        Shotgun() {
-            this->content = {};
+        Shell shoot() {
+            return m_Chamber[m_ChamberIndex++];
         }
 
-        Shell shell(int n=0) {
-            return this->content[n];
-        }
-
-        void shoot() {
-            this->content.erase(this->content.begin());
+        Shell peek() {
+            return m_Chamber[0];
         }
 
         void reload() {
+            m_ChamberIndex = 0;
             // TODO: make random engine a field of shotgun so we dont recreate it
             // every time we reload
             auto engine = std::default_random_engine{};
@@ -37,17 +32,16 @@ class Shotgun {
             int lives = dist(engine);
             int blanks = 8 - lives;
 
-            for (size_t i = 0; i < lives; i++)
-                content.push_back(Shell::Live);
+            for (size_t i = 0; i < lives; i++) 
+                m_Chamber[m_ChamberIndex++] = Shell::Live;
 
             for (size_t i = 0; i < blanks; i++)
-                content.push_back(Shell::Blank);
+                m_Chamber[m_ChamberIndex++] = Shell::Blank;
 
-            std::shuffle(content.begin(), content.end(), engine);
+            std::shuffle(m_Chamber.begin(), m_Chamber.end(), engine);
         }
 
-        void empty() {
-            this->content.clear();
-        }
-
+private:
+    std::array<Shell, 8> m_Chamber{};
+    size_t m_ChamberIndex;
 };
