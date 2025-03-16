@@ -20,12 +20,12 @@ void query(std::string text) {
     std::cout << text << "\n>";
 }
 
-bool validName(std::string name, std::vector<Player> *players) {
-    if (name == "" || name == " ") {
+// very weird function ngl
+bool validName(std::string name, std::vector<Player>* players) {
+    if (name == "" || name == " ")
         return false;
-    }
-    int arraySize = sizeof(players)/sizeof(*players);
-    return std::find(players, players + arraySize, name) != players + arraySize;
+
+    return std::find(players, players + players->size(), name) != players + players->size();
 }
 
 void initOpponents(Player &plr1, Player &plr2) {
