@@ -15,12 +15,12 @@ class Player {
             return this->lives;
         }
         
-        void addOpponent(Player opp) {
+        void addOpponent(Player* opp) {
             this->opponents.push_back(opp);
         }
 
     private:
         int lives;
         int wins;
-        std::vector<Player> opponents;
+        std::vector<Player*> opponents;
 };
