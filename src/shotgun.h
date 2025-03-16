@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include <algorithm>
+#include <cstdlib>
 
 enum class Shell {
     Blank,
@@ -12,6 +13,7 @@ enum class Shell {
 class Shotgun {
     public:
         std::vector<Shell> content;
+
         Shotgun() {
             this->dmg = 1;
             this->content = {};
@@ -26,17 +28,26 @@ class Shotgun {
             this->content.erase(this->content.begin());
         }
 
-        void insertShells(int lives, int blanks) {
-            for (int i = 0; i < lives; i++) {
-                this->content.push_back(Shell::Live);
-            }
-            for (int j = 0; j < blanks; j++) {
-                this->content.push_back(Shell::Blank);
-            }
-            auto rd = std::random_device {};
-            auto rng = std::default_random_engine { rd() };
-            std::shuffle(this->content.begin(), this->content.end(), rng);
+        void reload() {
+            // TODO: make random engine a field of shotgun so we dont recreate it
+            // every time we reload
+            auto engine = std::default_random_engine{};
+
+            // we can have from 1 to 7 live shells
+            std::uniform_int_distribution<int> dist(1, 7);
+
+            int lives = dist(engine);
+            int blanks = 8 - lives;
+
+            for (size_t i = 0; i < lives; i++)
+                content.push_back(Shell::Live);
+
+            for (size_t i = 0; i < blanks; i++)
+                content.push_back(Shell::Blank);
+
+            std::shuffle(content.begin(), content.end(), engine);
         }
+
         void empty() {
             this->dmg = 1;
             this->content.clear();
