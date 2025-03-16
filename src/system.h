@@ -1,5 +1,4 @@
-#ifndef SYSTEM_H
-#define SYSTEM_H
+#pragma once
 
 #include <cstdlib>
 #include <algorithm>
@@ -42,5 +41,3 @@ void initOpponents(Player &plr1, Player &plr2, Player &plr3) {
 bool shotgunNotEmpty(Shotgun s) {
     return s.content.size() > 0;
 }
-
-#endif

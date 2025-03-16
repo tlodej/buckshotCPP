@@ -1,5 +1,4 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#pragma once
 
 #include <vector>
 #include <ostream>
@@ -30,5 +29,3 @@ std::ostream& operator<<(std::ostream &s, Player &player) {
     s << player.name << "'s turn\n" << "you have " << player.getLives() << " lives\n" << "type to use:\n" << "shoot - shotgun\n";
     return s;
 }
-
-#endif

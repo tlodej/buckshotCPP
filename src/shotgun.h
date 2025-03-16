@@ -1,5 +1,4 @@
-#ifndef SHOTGUN_H
-#define SHOTGUN_H
+#pragma once
 
 #include <vector>
 #include <random>
@@ -38,5 +37,3 @@ class Shotgun {
     private:
         int dmg;
 };
-
-#endif
