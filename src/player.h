@@ -7,11 +7,10 @@
 class Player {
     public:
         std::string name;
-        Player(std::string name, int lives) {
-            this->name = name;
-            this->lives = lives;
-            this->wins = 0;
+
+        Player(std::string name, int lives): name(name), lives(lives), wins(0) {
         }
+
         int getLives() {
             return this->lives;
         }
