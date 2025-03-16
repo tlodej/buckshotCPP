@@ -15,7 +15,6 @@ class Shotgun {
         std::vector<Shell> content;
 
         Shotgun() {
-            this->dmg = 1;
             this->content = {};
         }
 
@@ -24,7 +23,6 @@ class Shotgun {
         }
 
         void shoot() {
-            this->dmg = 1;
             this->content.erase(this->content.begin());
         }
 
@@ -49,10 +47,7 @@ class Shotgun {
         }
 
         void empty() {
-            this->dmg = 1;
             this->content.clear();
         }
 
-    private:
-        int dmg;
 };
